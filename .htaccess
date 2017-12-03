@@ -1,0 +1,18 @@
+Options -Multiviews
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#Redirect to backoffice or to site
+RewriteRule ^bo(|[a-zA-Z0-9_/-]+)/?$ /backoffice/index.php?url=$1 [NC,L,QSA]
+RewriteRule ^(|[a-zA-Z0-9_/-]+)/?$ /site/index.php?url=$1 [NC,L,QSA]
+
+#ErrorDocument 400 app/views/common/errors/400.php
+#ErrorDocument 401 app/views/common/errors/401.php
+#ErrorDocument 403 app/views/common/errors/403.php
+#ErrorDocument 404 app/views/common/errors/404.php
+#ErrorDocument 500 app/views/common/errors/500.php
+
+
